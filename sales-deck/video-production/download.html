@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDFダウンロード | 映像制作提案資料</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif;
+      background: linear-gradient(135deg, #0f1b2d, #1a2d47);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      color: white;
+    }
+    .card {
+      background: white;
+      color: #1e293b;
+      border-radius: 24px;
+      padding: 48px 40px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+    }
+    .icon { font-size: 64px; margin-bottom: 16px; }
+    h1 { font-size: 22px; margin-bottom: 8px; color: #0f1b2d; }
+    p { font-size: 15px; color: #64748b; line-height: 1.7; margin-bottom: 32px; }
+    .download-btn {
+      display: block;
+      background: linear-gradient(135deg, #c9a227, #e8c547);
+      color: #0f1b2d;
+      text-decoration: none;
+      padding: 20px 32px;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      transition: transform 0.2s;
+    }
+    .download-btn:active { transform: scale(0.97); }
+    .info { font-size: 13px; color: #94a3b8; }
+    .info li { list-style: none; padding: 4px 0; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon">📄</div>
+    <h1>映像制作 提案資料 PDF</h1>
+    <p>LUMINA FILM<br>全12ページ・横向き</p>
+    <a class="download-btn" href="LUMINA-FILM-proposal.pdf" download="LUMINA-FILM-proposal.pdf">
+      ⬇️ PDFをダウンロード
+    </a>
+    <ul class="info">
+      <li>📱 iPad: 長押し →「ダウンロード」</li>
+      <li>📂 ファイルアプリに保存されます</li>
+    </ul>
+  </div>
+</body>
+</html>
