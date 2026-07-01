@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>和心料理スクール | 本格和食を学ぶ</title>
+    <style>
+:root {
+    --primary-color: #d4282d;
+    --secondary-color: #1a1a1a;
+    --accent-color: #f4a460;
+    --text-color: #333;
+    --text-light: #666;
+    --bg-light: #fafafa;
+    --white: #ffffff;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--text-color);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow);
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: 2px;
+}
+
+.logo-sub {
+    font-size: 12px;
+    color: var(--text-light);
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: var(--transition);
+}
+
+.nav-menu a:hover {
+    color: var(--primary-color);
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.nav-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--text-color);
+    transition: var(--transition);
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 20px 80px;
+    background: linear-gradient(135deg, #fafafa 0%, #fff 50%, #f5f5f5 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(212, 40, 45, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.hero-content {
+    max-width: 600px;
+    z-index: 1;
+}
+
+.hero-subtitle {
+    display: block;
+    font-size: 14px;
+    color: var(--text-light);
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.hero-title {
+    font-size: 56px;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+
+.hero-description {
+    font-size: 18px;
+    color: var(--text-light);
+    margin-bottom: 40px;
+    line-height: 1.8;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 16px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    display: inline-block;
+    text-align: center;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: #b52227;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-secondary:hover {
+    background: var(--secondary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline:hover {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-decoration {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(135deg, rgba(212, 40, 45, 0.1) 0%, rgba(244, 164, 96, 0.1) 100%);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    animation: morph 8s ease-in-out infinite;
+}
+
+@keyframes morph {
+    0%, 100% {
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+    50% {
+        border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+    }
+}
+
+.section {
+    padding: 100px 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 60px;
+}
+
+.section-subtitle {
+    display: block;
+    font-size: 14px;
+    color: var(--primary-color);
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.about {
+    background: var(--white);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.about-text h3 {
+    font-size: 32px;
+    color: var(--secondary-color);
+    margin-bottom: 25px;
+    line-height: 1.4;
+}
+
+.about-text p {
+    color: var(--text-light);
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.feature {
+    text-align: center;
+}
+
+.feature-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.feature h4 {
+    font-size: 18px;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.feature p {
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+.about-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-decoration {
+    width: 100%;
+    max-width: 450px;
+    height: 450px;
+    background: linear-gradient(135deg, rgba(212, 40, 45, 0.08) 0%, rgba(244, 164, 96, 0.08) 100%);
+    border-radius: 20px;
+}
+
+.courses {
+    background: var(--bg-light);
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.course-card {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.course-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    transform: scaleX(0);
+    transition: var(--transition);
+}
+
+.course-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.course-card:hover::before {
+    transform: scaleX(1);
+}
+
+.course-card.featured {
+    background: linear-gradient(135deg, var(--primary-color), #b52227);
+    color: var(--white);
+}
+
+.course-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.course-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+}
+
+.course-card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.course-card.featured h3 {
+    color: var(--white);
+}
+
+.course-price {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.course-price span {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.course-features {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.course-features li {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 15px;
+}
+
+.course-card.featured .course-features li {
+    border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+
+.trial-banner {
+    background: linear-gradient(135deg, var(--secondary-color), #333);
+    color: var(--white);
+    padding: 50px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.trial-banner h3 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.trial-banner p {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.trial-banner strong {
+    color: var(--accent-color);
+    font-size: 36px;
+}
+
+.gallery {
+    background: var(--white);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.gallery-item {
+    aspect-ratio: 1;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+.gallery-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--bg-light) 0%, #e8e8e8 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.gallery-placeholder span {
+    font-size: 48px;
+}
+
+.gallery-placeholder p {
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+.contact {
+    background: var(--bg-light);
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+
+.contact-info h3 {
+    font-size: 28px;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.contact-info > p {
+    color: var(--text-light);
+    margin-bottom: 40px;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.contact-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.contact-icon {
+    font-size: 32px;
+}
+
+.contact-item h4 {
+    font-size: 16px;
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+}
+
+.contact-item p {
+    color: var(--text-light);
+}
+
+.contact-form-wrapper {
+    background: var(--white);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.chat-button {
+    background: linear-gradient(135deg, var(--primary-color), #b52227);
+    color: var(--white);
+    border: none;
+    padding: 30px 50px;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.chat-button:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.chat-icon {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.chat-description {
+    margin-top: 20px;
+    color: var(--text-light);
+}
+
+.footer {
+    background: var(--secondary-color);
+    color: var(--white);
+    padding: 60px 20px 30px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    margin-bottom: 20px;
+}
+
+.footer-section p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-section ul a:hover {
+    color: var(--white);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.chat-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.chat-modal.active {
+    display: flex;
+}
+
+.chat-container {
+    background: var(--white);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 600px;
+    max-height: 700px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-lg);
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.chat-header {
+    background: linear-gradient(135deg, var(--primary-color), #b52227);
+    color: var(--white);
+    padding: 25px 30px;
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h3 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.chat-close {
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 32px;
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chat-close:hover {
+    transform: rotate(90deg);
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.chat-message {
+    display: flex;
+    gap: 15px;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.chat-message.user {
+    flex-direction: row-reverse;
+}
+
+.message-content {
+    background: var(--bg-light);
+    padding: 15px 20px;
+    border-radius: 15px;
+    max-width: 80%;
+    line-height: 1.6;
+}
+
+.chat-message.bot .message-content {
+    background: linear-gradient(135deg, rgba(212, 40, 45, 0.1), rgba(244, 164, 96, 0.1));
+}
+
+.chat-message.user .message-content {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.chat-input-area {
+    padding: 25px 30px;
+    border-top: 1px solid #eee;
+    display: flex;
+    gap: 15px;
+}
+
+#chatInput {
+    flex: 1;
+    padding: 15px 20px;
+    border: 2px solid #eee;
+    border-radius: 50px;
+    font-size: 15px;
+    transition: var(--transition);
+}
+
+#chatInput:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.send-button {
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.send-button:hover {
+    background: #b52227;
+    transform: scale(1.05);
+}
+
+.send-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+@media (max-width: 968px) {
+    .nav-menu {
+        display: none;
+    }
+    
+    .nav-toggle {
+        display: flex;
+    }
+    
+    .hero-title {
+        font-size: 42px;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .about-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .courses-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-title {
+        font-size: 32px;
+    }
+    
+    .section-title {
+        font-size: 32px;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.preview-notice {
+    background: linear-gradient(135deg, #4a90e2, #357abd);
+    color: white;
+    padding: 12px 20px;
+    text-align: center;
+    font-size: 14px;
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+}
+
+.preview-notice strong {
+    font-weight: 700;
+}
+    </style>
+</head>
+<body>
+    <div class="preview-notice">
+        <strong>📱 プレビュー版</strong> これはスタンドアロン版です。AIチャット機能を使うにはバックエンドサーバーが必要です。
+    </div>
+
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="logo">和心 <span class="logo-sub">WASHIN</span></div>
+                <ul class="nav-menu">
+                    <li><a href="#home">ホーム</a></li>
+                    <li><a href="#about">スクール紹介</a></li>
+                    <li><a href="#courses">コース</a></li>
+                    <li><a href="#gallery">ギャラリー</a></li>
+                    <li><a href="#contact">お問い合わせ</a></li>
+                </ul>
+                <button class="nav-toggle" aria-label="メニュー">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="hero-subtitle">本格和食を基礎から学ぶ</span>
+                    和心料理スクール
+                </h1>
+                <p class="hero-description">
+                    出汁の引き方から寿司、天ぷらまで。<br>
+                    初心者の方も安心して学べる、大阪の日本料理教室です。
+                </p>
+                <div class="hero-buttons">
+                    <a href="#courses" class="btn btn-primary">体験レッスン（¥5,000）</a>
+                    <a href="#contact" class="btn btn-secondary">お問い合わせ</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-decoration"></div>
+            </div>
+        </section>
+
+        <section id="about" class="section about">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="section-subtitle">About Us</span>
+                    和心について
+                </h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>初心者から本格派まで、<br>丁寧に指導いたします</h3>
+                        <p>
+                            和心料理スクールは、日本料理の基本から応用まで、
+                            一人ひとりのレベルに合わせて丁寧に指導する料理教室です。
+                        </p>
+                        <p>
+                            「和食を作ってみたいけど難しそう」という方も大歓迎。
+                            経験豊富な講師が、出汁の取り方から包丁の使い方まで、
+                            基礎からしっかりとお教えします。
+                        </p>
+                        <div class="about-features">
+                            <div class="feature">
+                                <div class="feature-icon">👥</div>
+                                <h4>少人数制</h4>
+                                <p>最大6名までの少人数クラスで丁寧に指導</p>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-icon">📚</div>
+                                <h4>初心者歓迎</h4>
+                                <p>包丁の持ち方から丁寧にレクチャー</p>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-icon">🎓</div>
+                                <h4>本格指導</h4>
+                                <p>料亭出身の講師による本格的な技術</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <div class="about-decoration"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="courses" class="section courses">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="section-subtitle">Courses</span>
+                    コース紹介
+                </h2>
+                <div class="courses-grid">
+                    <div class="course-card">
+                        <div class="course-icon">🍜</div>
+                        <h3>出汁の基本コース</h3>
+                        <p class="course-price">¥8,000 <span>/回</span></p>
+                        <ul class="course-features">
+                            <li>昆布出汁の取り方</li>
+                            <li>鰹出汁の引き方</li>
+                            <li>合わせ出汁の作り方</li>
+                            <li>お味噌汁の作り方</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline">詳細を見る</a>
+                    </div>
+                    <div class="course-card featured">
+                        <div class="course-badge">人気</div>
+                        <div class="course-icon">🍣</div>
+                        <h3>寿司職人体験コース</h3>
+                        <p class="course-price">¥12,000 <span>/回</span></p>
+                        <ul class="course-features">
+                            <li>酢飯の作り方</li>
+                            <li>握り寿司の技術</li>
+                            <li>巻き寿司の作り方</li>
+                            <li>ネタの扱い方</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary">詳細を見る</a>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-icon">🍤</div>
+                        <h3>天ぷら技術コース</h3>
+                        <p class="course-price">¥10,000 <span>/回</span></p>
+                        <ul class="course-features">
+                            <li>衣の作り方</li>
+                            <li>揚げ油の温度管理</li>
+                            <li>野菜の下処理</li>
+                            <li>海老の天ぷら</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline">詳細を見る</a>
+                    </div>
+                </div>
+                <div class="trial-banner">
+                    <h3>初めての方限定！体験レッスン</h3>
+                    <p>通常¥8,000 → <strong>¥5,000</strong></p>
+                    <a href="#contact" class="btn btn-primary">今すぐ予約</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="section gallery">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="section-subtitle">Gallery</span>
+                    レッスン風景
+                </h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">
+                            <span>🍱</span>
+                            <p>出汁の授業風景</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">
+                            <span>🍣</span>
+                            <p>寿司の握り方指導</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">
+                            <span>🍤</span>
+                            <p>天ぷら実習</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">
+                            <span>👨‍🍳</span>
+                            <p>講師による実演</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="section-subtitle">Contact</span>
+                    お問い合わせ
+                </h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>お気軽にご相談ください</h3>
+                        <p>
+                            レッスンに関するご質問、体験レッスンのご予約など、
+                            どんなことでもお気軽にお問い合わせください。
+                        </p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-icon">📍</div>
+                                <div>
+                                    <h4>所在地</h4>
+                                    <p>大阪府大阪市</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">⏰</div>
+                                <div>
+                                    <h4>営業時間</h4>
+                                    <p>10:00 - 19:00（月〜土）</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">💬</div>
+                                <div>
+                                    <h4>AIチャット</h4>
+                                    <p>24時間受付中</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form-wrapper">
+                        <button id="openChat" class="chat-button">
+                            <span class="chat-icon">💬</span>
+                            AIチャットで相談する
+                        </button>
+                        <p class="chat-description">
+                            簡単な質問から日程調整まで、AIがサポートします。<br>
+                            <small>（※プレビュー版ではバックエンドが必要です）</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>和心料理スクール</h3>
+                    <p>本格和食を基礎から学ぶ日本料理教室</p>
+                </div>
+                <div class="footer-section">
+                    <h4>リンク</h4>
+                    <ul>
+                        <li><a href="#about">スクール紹介</a></li>
+                        <li><a href="#courses">コース</a></li>
+                        <li><a href="#contact">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>営業時間</h4>
+                    <p>月〜土: 10:00 - 19:00</p>
+                    <p>日曜・祝日: 休業</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 和心料理スクール All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="chatModal" class="chat-modal">
+        <div class="chat-container">
+            <div class="chat-header">
+                <h3>💬 AIチャット相談</h3>
+                <button id="closeChat" class="chat-close">&times;</button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-message bot">
+                    <div class="message-content">
+                        こんにちは！和心料理スクールのAI受付です。<br>
+                        レッスンに関するご質問やご予約など、お気軽にお尋ねください。<br><br>
+                        <small>（プレビュー版: 実際の送信にはバックエンドサーバーが必要です）</small>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <input 
+                    type="text" 
+                    id="chatInput" 
+                    placeholder="メッセージを入力..."
+                    autocomplete="off"
+                >
+                <button id="sendMessage" class="send-button">送信</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const chatModal = document.getElementById('chatModal');
+    const openChatBtn = document.getElementById('openChat');
+    const closeChatBtn = document.getElementById('closeChat');
+    const chatInput = document.getElementById('chatInput');
+    const sendBtn = document.getElementById('sendMessage');
+    const chatMessages = document.getElementById('chatMessages');
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    openChatBtn?.addEventListener('click', () => {
+        chatModal.classList.add('active');
+        chatInput.focus();
+    });
+
+    closeChatBtn?.addEventListener('click', () => {
+        chatModal.classList.remove('active');
+    });
+
+    chatModal?.addEventListener('click', (e) => {
+        if (e.target === chatModal) {
+            chatModal.classList.remove('active');
+        }
+    });
+
+    navToggle?.addEventListener('click', () => {
+        navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+                if (window.innerWidth <= 968) {
+                    navMenu.style.display = 'none';
+                }
+            }
+        });
+    });
+
+    function sendMessage() {
+        const message = chatInput.value.trim();
+        if (!message) return;
+
+        addMessage(message, 'user');
+        chatInput.value = '';
+        
+        setTimeout(() => {
+            addMessage(
+                'プレビュー版のため、実際の送信機能は利用できません。完全な機能を使うには、バックエンドサーバー（server.js）を起動してください。',
+                'bot'
+            );
+        }, 500);
+    }
+
+    function addMessage(text, sender) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `chat-message ${sender}`;
+        
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'message-content';
+        contentDiv.innerHTML = text.replace(/\n/g, '<br>');
+        
+        messageDiv.appendChild(contentDiv);
+        chatMessages.appendChild(messageDiv);
+        
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    sendBtn?.addEventListener('click', sendMessage);
+
+    chatInput?.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            sendMessage();
+        }
+    });
+
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('.header');
+        if (window.scrollY > 50) {
+            header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        } else {
+            header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
+        }
+    });
+
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.course-card, .gallery-item, .feature').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+});
+    </script>
+</body>
+</html>
