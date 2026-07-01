@@ -10,54 +10,113 @@
       font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif;
       background: linear-gradient(135deg, #0f1b2d, #1a2d47);
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
+      padding: 24px 20px 40px;
       color: white;
     }
     .card {
       background: white;
       color: #1e293b;
       border-radius: 24px;
-      padding: 48px 40px;
-      max-width: 420px;
-      width: 100%;
-      text-align: center;
+      padding: 36px 28px;
+      max-width: 440px;
+      margin: 0 auto;
       box-shadow: 0 30px 80px rgba(0,0,0,0.4);
     }
-    .icon { font-size: 64px; margin-bottom: 16px; }
-    h1 { font-size: 22px; margin-bottom: 8px; color: #0f1b2d; }
-    p { font-size: 15px; color: #64748b; line-height: 1.7; margin-bottom: 32px; }
-    .download-btn {
+    .icon { font-size: 56px; text-align: center; margin-bottom: 12px; }
+    h1 { font-size: 21px; text-align: center; margin-bottom: 6px; color: #0f1b2d; }
+    .sub { text-align: center; font-size: 14px; color: #64748b; margin-bottom: 24px; }
+    .warn {
+      background: #fef3c7;
+      border: 1px solid #fbbf24;
+      color: #92400e;
+      padding: 14px 16px;
+      border-radius: 12px;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .warn strong { display: block; margin-bottom: 4px; }
+    .btn {
       display: block;
+      text-align: center;
+      text-decoration: none;
+      padding: 18px 24px;
+      border-radius: 50px;
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .btn-primary {
       background: linear-gradient(135deg, #c9a227, #e8c547);
       color: #0f1b2d;
-      text-decoration: none;
-      padding: 20px 32px;
-      border-radius: 50px;
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 16px;
-      transition: transform 0.2s;
     }
-    .download-btn:active { transform: scale(0.97); }
-    .info { font-size: 13px; color: #94a3b8; }
-    .info li { list-style: none; padding: 4px 0; }
+    .btn-secondary {
+      background: #f1f5f9;
+      color: #0f1b2d;
+      font-size: 15px;
+    }
+    .steps {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid #e2e8f0;
+    }
+    .steps h2 {
+      font-size: 15px;
+      color: #0f1b2d;
+      margin-bottom: 12px;
+    }
+    .steps ol {
+      padding-left: 20px;
+      font-size: 14px;
+      color: #64748b;
+      line-height: 1.8;
+    }
+    .steps li { margin-bottom: 6px; }
+    .github-link {
+      margin-top: 16px;
+      font-size: 13px;
+      color: #64748b;
+      word-break: break-all;
+      line-height: 1.5;
+    }
+    .github-link a { color: #2563eb; }
   </style>
 </head>
 <body>
   <div class="card">
     <div class="icon">📄</div>
     <h1>映像制作 提案資料 PDF</h1>
-    <p>LUMINA FILM<br>全12ページ・横向き</p>
-    <a class="download-btn" href="LUMINA-FILM-proposal.pdf" download="LUMINA-FILM-proposal.pdf">
-      ⬇️ PDFをダウンロード
+    <p class="sub">LUMINA FILM｜全12ページ</p>
+
+    <div class="warn">
+      <strong>⚠️ Google ChromeだとPDFが開くだけのことがあります</strong>
+      必ず <strong>Safari</strong> でこのページを開いてください。
+    </div>
+
+    <a class="btn btn-primary" href="/download-pdf">
+      ⬇️ PDFをダウンロード（Safari推奨）
     </a>
-    <ul class="info">
-      <li>📱 iPad: 長押し →「ダウンロード」</li>
-      <li>📂 ファイルアプリに保存されます</li>
-    </ul>
+
+    <a class="btn btn-secondary" href="https://github.com/skydronekusumoto/-/raw/cursor/video-production-sales-deck-506a/sales-deck/video-production/LUMINA-FILM-proposal.pdf">
+      GitHubから直接ダウンロード
+    </a>
+
+    <div class="steps">
+      <h2>📱 iPad（Safari）での保存手順</h2>
+      <ol>
+        <li>上のボタンをタップ</li>
+        <li>「ダウンロード」を選択</li>
+        <li>右上の <strong>↓</strong> アイコン → ファイルをタップ</li>
+        <li>共有ボタン → <strong>「ファイルに保存」</strong></li>
+      </ol>
+    </div>
+
+    <p class="github-link">
+      うまくいかない場合：<br>
+      <a href="https://github.com/skydronekusumoto/-/raw/cursor/video-production-sales-deck-506a/sales-deck/video-production/LUMINA-FILM-proposal.pdf">
+        GitHubのリンクを長押し →「リンク先のファイルをダウンロード」
+      </a>
+    </p>
   </div>
 </body>
 </html>
