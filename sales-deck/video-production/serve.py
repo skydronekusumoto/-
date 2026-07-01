@@ -5,7 +5,9 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 
 DIR = os.path.dirname(os.path.abspath(__file__))
 PDF_NAME = "LUMINA-FILM-proposal.pdf"
+ZIP_NAME = "LUMINA-FILM-proposal.zip"
 PDF_PATH = os.path.join(DIR, PDF_NAME)
+ZIP_PATH = os.path.join(DIR, ZIP_NAME)
 
 MIME = {
     ".html": "text/html; charset=utf-8",
@@ -24,6 +26,9 @@ class Handler(BaseHTTPRequestHandler):
 
         if path in ("/download-pdf", f"/{PDF_NAME}"):
             return self.serve_pdf(force_download=True)
+
+        if path in ("/download-zip", f"/{ZIP_NAME}"):
+            return self.serve_zip()
 
         if path == "/view-pdf":
             return self.serve_pdf(force_download=False)
@@ -58,6 +63,14 @@ class Handler(BaseHTTPRequestHandler):
             data = f.read()
         ctype = "application/octet-stream" if force_download else "application/pdf"
         self.send_bytes(data, ctype, PDF_NAME, force_download=force_download)
+
+    def serve_zip(self):
+        if not os.path.isfile(ZIP_PATH):
+            self.send_error(404, "ZIP not found")
+            return
+        with open(ZIP_PATH, "rb") as f:
+            data = f.read()
+        self.send_bytes(data, "application/zip", ZIP_NAME, force_download=True)
 
     def send_bytes(self, data, content_type, filename, force_download=False):
         self.send_response(200)

@@ -3,120 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PDFダウンロード | 映像制作提案資料</title>
+  <title>PDFダウンロード</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif;
-      background: linear-gradient(135deg, #0f1b2d, #1a2d47);
-      min-height: 100vh;
-      padding: 24px 20px 40px;
+      font-family: -apple-system, sans-serif;
+      background: #0f1b2d;
       color: white;
+      margin: 0;
+      padding: 24px;
+      min-height: 100vh;
     }
-    .card {
+    .box {
+      max-width: 400px;
+      margin: 40px auto;
       background: white;
-      color: #1e293b;
-      border-radius: 24px;
-      padding: 36px 28px;
-      max-width: 440px;
-      margin: 0 auto;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.4);
-    }
-    .icon { font-size: 56px; text-align: center; margin-bottom: 12px; }
-    h1 { font-size: 21px; text-align: center; margin-bottom: 6px; color: #0f1b2d; }
-    .sub { text-align: center; font-size: 14px; color: #64748b; margin-bottom: 24px; }
-    .warn {
-      background: #fef3c7;
-      border: 1px solid #fbbf24;
-      color: #92400e;
-      padding: 14px 16px;
-      border-radius: 12px;
-      font-size: 14px;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-    .warn strong { display: block; margin-bottom: 4px; }
-    .btn {
-      display: block;
+      color: #111;
+      border-radius: 20px;
+      padding: 32px 24px;
       text-align: center;
+    }
+    h1 { font-size: 20px; margin: 0 0 8px; }
+    p { font-size: 14px; color: #666; line-height: 1.6; }
+    .big {
+      display: block;
+      background: #c9a227;
+      color: #111;
       text-decoration: none;
-      padding: 18px 24px;
-      border-radius: 50px;
-      font-size: 17px;
+      font-size: 18px;
       font-weight: 700;
-      margin-bottom: 12px;
+      padding: 20px;
+      border-radius: 14px;
+      margin: 20px 0 12px;
     }
-    .btn-primary {
-      background: linear-gradient(135deg, #c9a227, #e8c547);
-      color: #0f1b2d;
-    }
-    .btn-secondary {
+    .sub {
+      display: block;
       background: #f1f5f9;
-      color: #0f1b2d;
+      color: #111;
+      text-decoration: none;
       font-size: 15px;
+      padding: 14px;
+      border-radius: 14px;
+      margin-bottom: 10px;
     }
-    .steps {
-      margin-top: 24px;
-      padding-top: 20px;
-      border-top: 1px solid #e2e8f0;
-    }
-    .steps h2 {
-      font-size: 15px;
-      color: #0f1b2d;
-      margin-bottom: 12px;
-    }
-    .steps ol {
-      padding-left: 20px;
-      font-size: 14px;
-      color: #64748b;
-      line-height: 1.8;
-    }
-    .steps li { margin-bottom: 6px; }
-    .github-link {
-      margin-top: 16px;
+    .note {
+      background: #fff7ed;
+      border: 1px solid #fdba74;
+      color: #9a3412;
+      padding: 12px;
+      border-radius: 10px;
       font-size: 13px;
-      color: #64748b;
-      word-break: break-all;
-      line-height: 1.5;
+      text-align: left;
+      margin-top: 16px;
     }
-    .github-link a { color: #2563eb; }
+    ol { text-align: left; font-size: 13px; color: #555; padding-left: 18px; }
+    li { margin: 6px 0; }
   </style>
 </head>
 <body>
-  <div class="card">
-    <div class="icon">📄</div>
-    <h1>映像制作 提案資料 PDF</h1>
-    <p class="sub">LUMINA FILM｜全12ページ</p>
+  <div class="box">
+    <h1>📄 映像制作 提案資料</h1>
+    <p>全12ページ PDF</p>
 
-    <div class="warn">
-      <strong>⚠️ Google ChromeだとPDFが開くだけのことがあります</strong>
-      必ず <strong>Safari</strong> でこのページを開いてください。
+    <div class="note">
+      <strong>Chromeだと開くだけです</strong><br>
+      必ず <strong>Safari</strong> で開いてください
     </div>
 
-    <a class="btn btn-primary" href="/download-pdf">
-      ⬇️ PDFをダウンロード（Safari推奨）
-    </a>
+    <a class="big" href="/download-zip">⬇️ ZIPでダウンロード（おすすめ）</a>
+    <a class="sub" href="/download-pdf">PDFでダウンロード</a>
 
-    <a class="btn btn-secondary" href="https://github.com/skydronekusumoto/-/raw/cursor/video-production-sales-deck-506a/sales-deck/video-production/LUMINA-FILM-proposal.pdf">
-      GitHubから直接ダウンロード
-    </a>
-
-    <div class="steps">
-      <h2>📱 iPad（Safari）での保存手順</h2>
-      <ol>
-        <li>上のボタンをタップ</li>
-        <li>「ダウンロード」を選択</li>
-        <li>右上の <strong>↓</strong> アイコン → ファイルをタップ</li>
-        <li>共有ボタン → <strong>「ファイルに保存」</strong></li>
-      </ol>
-    </div>
-
-    <p class="github-link">
-      うまくいかない場合：<br>
-      <a href="https://github.com/skydronekusumoto/-/raw/cursor/video-production-sales-deck-506a/sales-deck/video-production/LUMINA-FILM-proposal.pdf">
-        GitHubのリンクを長押し →「リンク先のファイルをダウンロード」
-      </a>
-    </p>
+    <ol>
+      <li>上のボタンをタップ</li>
+      <li>「ダウンロード」を選ぶ</li>
+      <li>ファイルアプリ → ダウンロード</li>
+      <li>ZIPの場合はタップして中のPDFを開く</li>
+    </ol>
   </div>
 </body>
 </html>
